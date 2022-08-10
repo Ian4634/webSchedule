@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-
+from .models import Lesson
 # Create your views here.
 
 def main(request):
@@ -10,6 +10,9 @@ def add_lesson(request):
 
 def process(request):
     if request.method == 'POST':
-        time = request.POST['time'], request.POST['amount']
-        print(time)
+        time = request.POST['time']
+        notes = request.POST['notes']
+        instructors = request.POST['instructors']
+        Lesson.objects.create(time = time, notes = notes, instructors = instructors).save()
+       
     return redirect('http://localhost:8000/scheduleBoard/')
