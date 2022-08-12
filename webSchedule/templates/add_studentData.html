@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<!--allows users to type in student data and stores it automatically-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action = '{% url 'process'%}' method = 'POST'>
+    {% csrf_token%}
+    <h3>姓名</h3><input type='text' name = 'student_name'>
+    <h3>鞋號</h3><input type = 'text' name = 'shoe'>
+    <h3>板子</h3><input type = 'text' name = 'board'>
+    <h3>站姿</h3><input type="text" name = 'stance'>
+    <h3>binding size</h3><input type="text" name = 'bindingSize'>
+    <button type = 'submit'>加入</button>
+    </form>
+</body>
+</html>
